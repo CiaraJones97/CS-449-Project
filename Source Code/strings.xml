@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Mini DnD</string>
+    <string name="action_settings">Settings</string>
+
+    //Create Character Strings
+    <string name="create_char">Create A Character</string>
+    <string name="choose_race">Choose Fantasy Race</string>
+    <string name="choose_class">Choose Fantasy Class</string>
+    <string name="build_create">Build Created:</string>
+    <string name="human_button">HUMAN</string>
+    <string name="elf_button">ELF</string>
+    <string name="orc_button">ORC</string>
+    <string name="tiefling_button">TIEFLING</string>
+    <string name="rogue_button">ROGUE</string>
+    <string name="bard_button">BARD</string>
+    <string name="paladin_button">PALADIN</string>
+    <string name="wizard_button">WIZARD</string>
+
+    <string name="stats_option">Stats</string>
+    <string name="title_activity_stats">Stats</string>
+
+    <string name="stats_text">"STATS"</string>
+
+
+</resources>
