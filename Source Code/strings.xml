@@ -4,6 +4,7 @@
 
     //Create Character Strings
     <string name="create_char">Create A Character</string>
+    <string name="confirm_char">Confirm Character</string>
     <string name="choose_race">Choose Fantasy Race</string>
     <string name="choose_class">Choose Fantasy Class</string>
     <string name="build_create">Build Created:</string>

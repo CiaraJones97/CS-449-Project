@@ -6,6 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".CreateChar">
 
+    <Button
+        android:id="@+id/confirm_char"
+        android:layout_width="181dp"
+        android:layout_height="wrap_content"
+        android:text="@string/confirm_char"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.954" />
+
     <TextView
         android:id="@+id/build_create"
         android:layout_width="367dp"
