@@ -21,10 +21,10 @@
 
     <TextView
         android:id="@+id/build_create"
-        android:layout_width="367dp"
+        android:layout_width="360dp"
         android:layout_height="119dp"
         android:text="@string/build_create"
-        android:textSize="36sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.136"
         app:layout_constraintLeft_toLeftOf="parent"

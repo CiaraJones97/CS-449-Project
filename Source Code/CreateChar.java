@@ -1,4 +1,4 @@
-package com.example.minidnd;
+package com.example.dnd;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.util.Objects;
 
 public class CreateChar extends AppCompatActivity {
 
@@ -122,12 +124,12 @@ public class CreateChar extends AppCompatActivity {
             }
         });
 
-
+        //Confirm Character Selection
         Button confirmButton = findViewById(R.id.confirm_char);
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (temp.getString("Race", " ") == " " || temp.getString("Class", " ") == " ")
+                if (temp.getString("Race"," ").equals(" ") || temp.getString("Class", " ").equals(" "))
                 {
                     AlertDialog.Builder alert = new AlertDialog.Builder(CreateChar.this);
                     alert.setTitle("Error");
@@ -136,10 +138,9 @@ public class CreateChar extends AppCompatActivity {
                     alertDialog.show();
                 }
                 else {
-                    Intent statIntent = new Intent(CreateChar.this, Stats.class);
                     Intent intent = new Intent(CreateChar.this, MainActivity.class);
-                    statIntent.putExtra("Class",temp.getString("Class", "NA"));
-                    statIntent.putExtra("Race", temp.getString("Race", "NA"));
+                    intent.putExtra("CharClass",temp.getString("Class", "NA"));
+                    intent.putExtra("CharRace", temp.getString("Race", "NA"));
 
                     setResult(Activity.RESULT_OK, intent);
                     finish();

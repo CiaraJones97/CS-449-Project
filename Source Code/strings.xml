@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Mini DnD</string>
+    <string name="app_name">DnD</string>
     <string name="action_settings">Settings</string>
 
     //Create Character Strings
@@ -17,10 +17,15 @@
     <string name="paladin_button">PALADIN</string>
     <string name="wizard_button">WIZARD</string>
 
+    //Stats Page Strings
     <string name="stats_option">Stats</string>
-    <string name="title_activity_stats">Stats</string>
+    <string name="title_activity_stats">STATS PAGE</string>
+    <string name="stats_text">stats text</string>
 
-    <string name="stats_text">"STATS"</string>
-
+    //Start Game Strings
+    <string name="start_game">Start Game</string>
+    <string name="title_activity_game">Game</string>
+    <string name="instruct_text">TEXT</string>
+    <string name="next_button">NEXT</string>
 
 </resources>
