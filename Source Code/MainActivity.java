@@ -40,17 +40,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent charIntent = new Intent(MainActivity.this, CreateChar.class);
                 startActivityForResult(charIntent, 101);
 
-                //Get the Stats from the Stats.java Activity
-                if (!settings.getString("Race", "NA").equals("NA") &&
-                !settings.getString("Class", "NA").equals("NA")) {
-                    editor.putBoolean("Press", false);
-                    editor.commit();
-                    Intent statIntent = new Intent(MainActivity.this, Stats.class);
-                    statIntent.putExtra("CharClass",settings.getString("Class", " "));
-                    statIntent.putExtra("CharRace", settings.getString("Race", " "));
-                    statIntent.putExtra("Press", settings.getBoolean("Press", false));
-                    startActivityForResult(statIntent, 102);
-                }
             }
         });
 
@@ -98,7 +87,13 @@ public class MainActivity extends AppCompatActivity {
                 if (resultCode == Activity.RESULT_OK) {
                     editor.putString("Race",data.getStringExtra("CharRace"));
                     editor.putString("Class", data.getStringExtra("CharClass"));
+                    editor.putBoolean("Press", false);
                     editor.commit();
+                    Intent statIntent = new Intent(MainActivity.this, Stats.class);
+                    statIntent.putExtra("CharClass",settings.getString("Class", " "));
+                    statIntent.putExtra("CharRace", settings.getString("Race", " "));
+                    statIntent.putExtra("Press", settings.getBoolean("Press", false));
+                    startActivityForResult(statIntent, 102);
                     break;
 
                 }
@@ -121,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
                     {
                         editor.putInt("Health", data.getIntExtra("CharHealth",-10));
                         editor.putInt("Initiative", data.getIntExtra("CharInitiative", -10));
-                        editor.putInt("AC", data.getIntExtra("CharAc", -10));
+                        editor.putInt("AC", data.getIntExtra("CharAC", -10));
                         editor.putInt("Pro", data.getIntExtra("CharPro",-10));
                         editor.putInt("Str", data.getIntExtra("CharStr", -10));
                         editor.putInt("Dex", data.getIntExtra("CharDex", -10));

@@ -27,5 +27,6 @@
     <string name="title_activity_game">Game</string>
     <string name="instruct_text">TEXT</string>
     <string name="next_button">NEXT</string>
+    <string name="health_num">NUM</string>
 
 </resources>

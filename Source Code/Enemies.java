@@ -17,9 +17,8 @@ public class Enemies extends Game {
     public int Cha;
     public String EnemyName;
 
-    public int die;
-    public Enemies(){
-        die = new Random().nextInt(5);
+    public Enemies(int die){
+
         switch (die) {
             //Goblin
             case 0:

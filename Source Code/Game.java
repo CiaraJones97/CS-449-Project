@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -14,7 +16,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import java.util.Random;
 
 public class Game extends AppCompatActivity {
 
@@ -34,14 +39,13 @@ public class Game extends AppCompatActivity {
 
         set = this.getPreferences(MODE_PRIVATE);
         edit = set.edit();
-        edit.commit();
 
         //Get the data from MainActivity.java
         edit.putString("Class", getIntent().getStringExtra("CharClass"));
         edit.putString("Race", getIntent().getStringExtra("CharRace"));
         edit.putInt("Health", getIntent().getIntExtra("CharHealth",-10));
         edit.putInt("Initiative", getIntent().getIntExtra("CharInitiative", -10));
-        edit.putInt("AC", getIntent().getIntExtra("CharAc",-10));
+        edit.putInt("AC", getIntent().getIntExtra("CharAC",-10));
         edit.putInt("Pro", getIntent().getIntExtra("CharPro", -10));
         edit.putInt("Str", getIntent().getIntExtra("CharStr",-10));
         edit.putInt("Dex", getIntent().getIntExtra("CharDex", -10));
@@ -52,8 +56,25 @@ public class Game extends AppCompatActivity {
         edit.putInt("Page",x);
         edit.commit();
 
+
+        final Enemies enemy = new Enemies(new Random().nextInt(5));
         final TextView Instruct_text = findViewById(R.id.instruct_text);
+        final TextView Health_num = findViewById(R.id.health_num);
+        ProgressBar HealthBar = (ProgressBar) findViewById(R.id.progressBar);
         Next = findViewById(R.id.next_button);
+
+        Instruct_text.setText("WELCOME TO THE GAME!!\n You are a " +
+                set.getString("Race", "NA") + ", " +
+                set.getString("Class", "NA") +
+                ".\nAccess your Stats anytime from the upper menu" +
+                "\nWatch your health bar below" +
+                "\nHit the NEXT Button to continue");
+
+        HealthBar.setMax(set.getInt("Health",-10));
+        HealthBar.setProgress(set.getInt("Health",-10));
+        HealthBar.getProgressDrawable().setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
+        Health_num.setText("Health: " + set.getInt("Health",-10));
+
 
         Next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,36 +82,27 @@ public class Game extends AppCompatActivity {
                 x++;
                 edit.putInt("Page",x);
                 edit.commit();
+
+                switch(set.getInt("Page",0))
+                {
+                    case 2:
+                        Instruct_text.setText("Your story starts in the small village." +
+                                "\nYou are standing in the center of town when you hear a noise" +
+                                "\nYou look in the direction and see a " + enemy.getEnemyName()+
+                                "\nattacking a nearby store" +
+                                "\nWhat do you want to do?");
+                        break;
+                    case 3:
+                        Instruct_text.setText("Next Page");
+                        break;
+
+                }
             }
         });
 
-        switch(set.getInt("Page",0))
-        {
-            case 1:
-                Instruct_text.setText("WELCOME TO THE GAME!!\n You are a " +
-                        set.getString("Race", "NA") + ", " +
-                        set.getString("Class", "NA") +
-                        ".\nAccess your Stats anytime from the upper menu" +
-                        "\nHit the NEXT Button to continue");
-                break;
-            case 2:
-                Instruct_text.setText("TEST PAGE");
-                break;
-        }
-
 
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        switch(requestCode) {
-            case 102:
-                if (resultCode == Activity.RESULT_OK) {
-                    break;
-                }
-        }
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -111,7 +123,8 @@ public class Game extends AppCompatActivity {
             Intent statIntent = new Intent(Game.this, Stats.class);
             statIntent.putExtra("CharClass",set.getString("Class", " "));
             statIntent.putExtra("CharRace", set.getString("Race", " "));
-            startActivityForResult(statIntent, 102);
+            statIntent.putExtra("Press", true);
+            startActivity(statIntent);
             return true;
         }
 
