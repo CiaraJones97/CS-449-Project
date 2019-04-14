@@ -1,4 +1,4 @@
-package com.example.dnd;
+package com.example.minidnd;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -6,14 +6,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
 
     static SharedPreferences settings;
     static SharedPreferences.Editor editor;
+
+    ArrayList<String> First_Spell;
+    ArrayList<String> Second_Spell;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         settings = this.getPreferences(MODE_PRIVATE);
         editor = settings.edit();
+
 
         CreateChar = findViewById(R.id.create_char_button);
         CreateChar.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +74,10 @@ public class MainActivity extends AppCompatActivity {
                     gameIntent.putExtra("CharInt", settings.getInt("Int", -10));
                     gameIntent.putExtra("CharWis", settings.getInt("Wis", -10));
                     gameIntent.putExtra("CharCha", settings.getInt("Cha", -10));
+                    gameIntent.putExtra("CharFirst", settings.getInt("First",-10));
+                    gameIntent.putExtra("CharSecond", settings.getInt("Second",-10));
+                    gameIntent.putStringArrayListExtra("CharFirst_Spell", First_Spell);
+                    gameIntent.putStringArrayListExtra("CharSecond_Spell", Second_Spell);
                     startActivity(gameIntent);
                 }
 
@@ -124,6 +132,10 @@ public class MainActivity extends AppCompatActivity {
                         editor.putInt("Int", data.getIntExtra("CharInt", -10));
                         editor.putInt("Wis", data.getIntExtra("CharWis", -10));
                         editor.putInt("Cha", data.getIntExtra("CharCha", -10));
+                        editor.putInt("First", data.getIntExtra("CharFirst", -10));
+                        editor.putInt("Second", data.getIntExtra("CharSecond", -10));
+                        First_Spell = data.getStringArrayListExtra("CharFirst_Spell");
+                        Second_Spell = data.getStringArrayListExtra("CharSecond_Spell");
                         editor.commit();
                     }
                     break;

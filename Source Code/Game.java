@@ -1,17 +1,12 @@
-package com.example.dnd;
+package com.example.minidnd;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,7 +14,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import java.util.Random;
+import java.util.ArrayList;
 
 public class Game extends AppCompatActivity {
 
@@ -27,15 +22,14 @@ public class Game extends AppCompatActivity {
     static SharedPreferences.Editor edit;
     private Button Next;
     int x = 1;
+    ArrayList<String> First_Spell;
+    ArrayList<String> Second_Spell;
 
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         set = this.getPreferences(MODE_PRIVATE);
         edit = set.edit();
@@ -53,28 +47,33 @@ public class Game extends AppCompatActivity {
         edit.putInt("Int", getIntent().getIntExtra("CharInt", -10));
         edit.putInt("Wis", getIntent().getIntExtra("CharWis",-10));
         edit.putInt("Cha", getIntent().getIntExtra("CharCha", -10));
+        edit.putInt("First", getIntent().getIntExtra("CharFirst", -10));
+        edit.putInt("Second", getIntent().getIntExtra("CharSecond", -10));
+        First_Spell = getIntent().getStringArrayListExtra("CharFirst_Spell");
+        Second_Spell = getIntent().getStringArrayListExtra("CharSecond_Spell");
         edit.putInt("Page",x);
         edit.commit();
 
 
-        final Enemies enemy = new Enemies(new Random().nextInt(5));
+        final Enemies enemy = new Enemies();
         final TextView Instruct_text = findViewById(R.id.instruct_text);
         final TextView Health_num = findViewById(R.id.health_num);
-        ProgressBar HealthBar = (ProgressBar) findViewById(R.id.progressBar);
+        ProgressBar HealthBar = findViewById(R.id.progressBar);
         Next = findViewById(R.id.next_button);
 
-        Instruct_text.setText("WELCOME TO THE GAME!!\n You are a " +
+        //Initial Message at the start of the game
+        Instruct_text.setText("WELCOME TO THE GAME!!\n You are a LEVEL 3 " +
                 set.getString("Race", "NA") + ", " +
                 set.getString("Class", "NA") +
-                ".\nAccess your Stats anytime from the upper menu" +
-                "\nWatch your health bar below" +
+                ".\nFor this game you have been a pre-made character sheet" +
+                ".\nAccess your STATS PAGE anytime from the upper menu" +
+                "\nWatch your HEALTH BAR below" +
                 "\nHit the NEXT Button to continue");
 
         HealthBar.setMax(set.getInt("Health",-10));
         HealthBar.setProgress(set.getInt("Health",-10));
         HealthBar.getProgressDrawable().setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
         Health_num.setText("Health: " + set.getInt("Health",-10));
-
 
         Next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,11 +85,11 @@ public class Game extends AppCompatActivity {
                 switch(set.getInt("Page",0))
                 {
                     case 2:
+                        enemy.newEnemy();
                         Instruct_text.setText("Your story starts in the small village." +
                                 "\nYou are standing in the center of town when you hear a noise" +
                                 "\nYou look in the direction and see a " + enemy.getEnemyName()+
-                                "\nattacking a nearby store" +
-                                "\nWhat do you want to do?");
+                                " attacking a nearby store" + "\nWhat do you want to do?");
                         break;
                     case 3:
                         Instruct_text.setText("Next Page");

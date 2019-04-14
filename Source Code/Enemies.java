@@ -1,4 +1,4 @@
-package com.example.dnd;
+package com.example.minidnd;
 
 import java.util.Random;
 
@@ -17,8 +17,21 @@ public class Enemies extends Game {
     public int Cha;
     public String EnemyName;
 
-    public Enemies(int die){
+    public Enemies(){
+        EnemyName = " ";
+        Health = -10;
+        Initiative = -10;
+        AC = -10;
+        Str = -10;
+        Dex = -10;
+        Con = -10;
+        Int = -10;
+        Wis = -10;
+        Cha = -10;
+    }
 
+    public void newEnemy(){
+        int die = new Random().nextInt(5);
         switch (die) {
             //Goblin
             case 0:
@@ -91,7 +104,6 @@ public class Enemies extends Game {
                 break;
 
         }
-
     }
 
     public String getEnemyName() {

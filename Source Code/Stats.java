@@ -1,15 +1,14 @@
-package com.example.dnd;
+package com.example.minidnd;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-import java.util.Objects;
+import java.util.ArrayList;
 
 public class Stats extends AppCompatActivity {
     int Health;
@@ -23,6 +22,11 @@ public class Stats extends AppCompatActivity {
     int Int;
     int Wis;
     int Cha;
+    int First_Level;
+    int Second_Level;
+
+    ArrayList<String> First_Spells = new ArrayList<>();
+    ArrayList<String> Second_Spells = new ArrayList<>();
 
     static SharedPreferences set;
     static SharedPreferences.Editor edit;
@@ -39,13 +43,14 @@ public class Stats extends AppCompatActivity {
         edit = set.edit();
         edit.commit();
 
-        //Get the Class and Race from MainActivity.java
+        //Get the Class, Race, and Button Press status from MainActivity.java
         edit.putString("Class", getIntent().getStringExtra("CharClass"));
         edit.putString("Race", getIntent().getStringExtra("CharRace"));
-
         edit.putBoolean("Press", getIntent().getBooleanExtra("Press",false));
-
         edit.commit();
+
+        First_Spells.clear();
+        Second_Spells.clear();
 
         final TextView Build_text = findViewById(R.id.build_create2);
         final TextView Stat_text = findViewById(R.id.stats_text);
@@ -65,6 +70,8 @@ public class Stats extends AppCompatActivity {
                     Int = 2;
                     Wis = -1;
                     Cha = 1;
+                    First_Level = 0;
+                    Second_Level = 0;
                     break;
 
                 case "Bard":
@@ -78,6 +85,12 @@ public class Stats extends AppCompatActivity {
                     Int = -1;
                     Wis = 0;
                     Cha = 2;
+                    First_Level = 4;
+                    Second_Level = 2;
+                    First_Spells.add("Cure Wounds");
+                    First_Spells.add("Charm Person");
+                    First_Spells.add("Detect Magic");
+                    Second_Spells.add("Invisibility");
                     break;
 
                 case "Paladin":
@@ -91,6 +104,12 @@ public class Stats extends AppCompatActivity {
                     Int = 0;
                     Wis = 1;
                     Cha = 2;
+                    First_Level = 3;
+                    Second_Level = 0;
+                    First_Spells.add("Bless");
+                    First_Spells.add("Searing Smite");
+                    First_Spells.add("Compelled Duel");
+                    First_Spells.add("Thunderous Smite");
                     break;
 
                 case "Wizard":
@@ -104,6 +123,14 @@ public class Stats extends AppCompatActivity {
                     Int = 3;
                     Wis = 1;
                     Cha = -1;
+                    First_Level = 4;
+                    Second_Level = 2;
+                    First_Spells.add("Mage Armor");
+                    First_Spells.add("Charm Person");
+                    First_Spells.add("Sleep");
+                    First_Spells.add("Detect Magic");
+                    Second_Spells.add("Suggestion");
+                    Second_Spells.add("Invisibility");
                     break;
 
                 default:
@@ -112,7 +139,7 @@ public class Stats extends AppCompatActivity {
             }
         }
 
-        //Race Human
+        //Race: Human
         if (set.getString("Race", " ").equals("Human")) {
             switch (set.getString("Class", " ")) {
                 case "Rogue":
@@ -126,6 +153,8 @@ public class Stats extends AppCompatActivity {
                     Int = 2;
                     Wis = -1;
                     Cha = 1;
+                    First_Level = 0;
+                    Second_Level = 0;
                     break;
 
                 case "Bard":
@@ -139,6 +168,13 @@ public class Stats extends AppCompatActivity {
                     Int = 0;
                     Wis = -1;
                     Cha = 3;
+                    First_Level = 4;
+                    Second_Level = 2;
+                    First_Spells.add("Charm Person");
+                    First_Spells.add("Detect Magic");
+                    First_Spells.add("Cure Wounds");
+                    First_Spells.add("Faerie Fire");
+                    Second_Spells.add("Hold Person");
                     break;
 
                 case "Paladin":
@@ -152,6 +188,12 @@ public class Stats extends AppCompatActivity {
                     Int = -1;
                     Wis = 1;
                     Cha = 2;
+                    First_Level = 3;
+                    Second_Level = 0;
+                    First_Spells.add("Cure Wounds");
+                    First_Spells.add("Wrathful Smite");
+                    First_Spells.add("Bless");
+                    First_Spells.add("Compelled Duel");
                     break;
 
                 case "Wizard":
@@ -165,6 +207,14 @@ public class Stats extends AppCompatActivity {
                     Int = 3;
                     Wis = 1;
                     Cha = 0;
+                    First_Level = 4;
+                    Second_Level = 2;
+                    First_Spells.add("Mage Armor");
+                    First_Spells.add("Charm Person");
+                    First_Spells.add("Sleep");
+                    First_Spells.add("Detect Magic");
+                    Second_Spells.add("Suggestion");
+                    Second_Spells.add("Invisibility");
                     break;
 
                 default:
@@ -173,7 +223,7 @@ public class Stats extends AppCompatActivity {
 
         }
 
-        //Race Orc
+        //Race: Orc
         if (set.getString("Race", " ").equals("Orc")) {
             switch (set.getString("Class", " ")) {
                 case "Rogue":
@@ -187,6 +237,8 @@ public class Stats extends AppCompatActivity {
                     Int = 1;
                     Wis = -1;
                     Cha = 1;
+                    First_Level = 0;
+                    Second_Level = 0;
                     break;
 
                 case "Bard":
@@ -200,6 +252,13 @@ public class Stats extends AppCompatActivity {
                     Int = -1;
                     Wis = 0;
                     Cha = 2;
+                    First_Level = 4;
+                    Second_Level = 2;
+                    First_Spells.add("Cure Wounds");
+                    First_Spells.add("Charm Person");
+                    Second_Spells.add("Invisibility");
+                    Second_Spells.add("Enhance Ability");
+                    Second_Spells.add("Hold Person");
                     break;
 
                 case "Paladin":
@@ -213,6 +272,12 @@ public class Stats extends AppCompatActivity {
                     Int = -1;
                     Wis = 1;
                     Cha = 2;
+                    First_Level = 3;
+                    Second_Level = 0;
+                    First_Spells.add("Compelled Duel");
+                    First_Spells.add("Thunderous Smite");
+                    First_Spells.add("Bless");
+                    First_Spells.add("Cure Wounds");
                     break;
 
                 case "Wizard":
@@ -226,6 +291,13 @@ public class Stats extends AppCompatActivity {
                     Int = 2;
                     Wis = 1;
                     Cha = 0;
+                    First_Level = 4;
+                    Second_Level = 2;
+                    First_Spells.add("Mage Armor");
+                    First_Spells.add("Charm Person");
+                    First_Spells.add("Sleep");
+                    First_Spells.add("Detect Magic");
+                    Second_Spells.add("Suggestion");
                     break;
 
                 default:
@@ -233,7 +305,7 @@ public class Stats extends AppCompatActivity {
             }
         }
 
-        //Race Tiefling
+        //Race: Tiefling
         if (set.getString("Race", " ").equals("Tiefling")) {
             switch (set.getString("Class", " ")) {
                 case "Rogue":
@@ -247,6 +319,8 @@ public class Stats extends AppCompatActivity {
                     Int = 2;
                     Wis = 0;
                     Cha = 2;
+                    First_Level = 0;
+                    Second_Level = 0;
                     break;
 
                 case "Bard":
@@ -260,6 +334,14 @@ public class Stats extends AppCompatActivity {
                     Int = -1;
                     Wis = 0;
                     Cha = 3;
+                    First_Level = 4;
+                    Second_Level = 2;
+                    First_Spells.add("Charm Person");
+                    First_Spells.add("Detect Magic");
+                    First_Spells.add("Cure Wounds");
+                    Second_Spells.add("Enhance Ability");
+                    Second_Spells.add("Invisibility");
+                    Second_Spells.add("Phantasmal Force");
                     break;
 
                 case "Paladin":
@@ -273,6 +355,13 @@ public class Stats extends AppCompatActivity {
                     Int = 0;
                     Wis = 1;
                     Cha = 3;
+                    First_Level = 3;
+                    Second_Level = 0;
+                    First_Spells.add("Cure Wounds");
+                    First_Spells.add("Wrathful Smite");
+                    First_Spells.add("Divine Favor");
+                    First_Spells.add("Searing Smite");
+                    First_Spells.add("Command");
                     break;
 
                 case "Wizard":
@@ -286,6 +375,14 @@ public class Stats extends AppCompatActivity {
                     Int = 3;
                     Wis = 1;
                     Cha = 0;
+                    First_Level = 4;
+                    Second_Level = 2;
+                    First_Spells.add("Mage Armor");
+                    First_Spells.add("Charm Person");
+                    First_Spells.add("Sleep");
+                    First_Spells.add("Detect Magic");
+                    Second_Spells.add("Suggestion");
+                    Second_Spells.add("Invisibility");
                     break;
 
                 default:
@@ -300,7 +397,9 @@ public class Stats extends AppCompatActivity {
         Stat_text.setText("Max Hp: " + Health + "\nInitiative: " + Initiative +
                 "\nArmor Class: " + AC + "\nProficiency: " + Pro + "\nStrength: " + Str
                 + "\nDexterity: " + Dex +"\nConstitution: " + Con + "\nIntelligence: " +
-                Int + "\nWisdom: " + Wis + "\nCharisma: " + Cha);
+                Int + "\nWisdom: " + Wis + "\nCharisma: " + Cha + "\n1st Level(" + First_Level
+                +" slots): " + First_Spells + "\n2nd Level(" + Second_Level+" slots): "
+                + Second_Spells);
 
         if (!set.getBoolean("Press", false))
         {
@@ -314,6 +413,10 @@ public class Stats extends AppCompatActivity {
             intent.putExtra("CharInt", Int);
             intent.putExtra("CharWis", Wis);
             intent.putExtra("CharCha", Cha);
+            intent.putExtra("CharFirst", First_Level);
+            intent.putExtra("CharSecond", Second_Level);
+            intent.putStringArrayListExtra("CharFirst_Spell", First_Spells);
+            intent.putStringArrayListExtra("CharSecond_Spell", Second_Spells);
             setResult(Activity.RESULT_OK, intent);
             finish();
         }
