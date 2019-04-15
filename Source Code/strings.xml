@@ -28,5 +28,9 @@
     <string name="instruct_text">TEXT</string>
     <string name="next_button">NEXT</string>
     <string name="health_num">NUM</string>
+    <string name="fight_button">FIGHT</string>
+    <string name="flee_button">FLEE</string>
+    <string name="inventory_button">INVENTORY</string>
+    <string name="attack_button">ATTACK</string>
 
 </resources>
