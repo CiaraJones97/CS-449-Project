@@ -17,12 +17,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button CreateChar;
-    private Button StartGame;
-
     static SharedPreferences settings;
     static SharedPreferences.Editor editor;
-
     ArrayList<String> First_Spell;
     ArrayList<String> Second_Spell;
 
@@ -35,10 +31,10 @@ public class MainActivity extends AppCompatActivity {
 
         settings = this.getPreferences(MODE_PRIVATE);
         editor = settings.edit();
+        editor.commit();
 
-
-        CreateChar = findViewById(R.id.create_char_button);
-        CreateChar.setOnClickListener(new View.OnClickListener() {
+        Button createChar = findViewById(R.id.create_char_button);
+        createChar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent charIntent = new Intent(MainActivity.this, CreateChar.class);
@@ -48,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //User chooses to start the game
-        StartGame = findViewById(R.id.start_game_button);
-        StartGame.setOnClickListener(new View.OnClickListener() {
+        Button startGame = findViewById(R.id.start_game_button);
+        startGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (settings.getString("Race", "NA").equals("NA") ||

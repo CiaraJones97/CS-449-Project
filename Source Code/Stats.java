@@ -90,7 +90,11 @@ public class Stats extends AppCompatActivity {
                     First_Spells.add("Cure Wounds");
                     First_Spells.add("Charm Person");
                     First_Spells.add("Detect Magic");
+                    First_Spells.add("NA");
                     Second_Spells.add("Invisibility");
+                    Second_Spells.add("NA");
+                    Second_Spells.add("NA");
+                    Second_Spells.add("NA");
                     break;
 
                 case "Paladin":
@@ -110,6 +114,10 @@ public class Stats extends AppCompatActivity {
                     First_Spells.add("Searing Smite");
                     First_Spells.add("Compelled Duel");
                     First_Spells.add("Thunderous Smite");
+                    Second_Spells.add("NA");
+                    Second_Spells.add("NA");
+                    Second_Spells.add("NA");
+                    Second_Spells.add("NA");
                     break;
 
                 case "Wizard":
@@ -131,6 +139,8 @@ public class Stats extends AppCompatActivity {
                     First_Spells.add("Detect Magic");
                     Second_Spells.add("Suggestion");
                     Second_Spells.add("Invisibility");
+                    Second_Spells.add("NA");
+                    Second_Spells.add("NA");
                     break;
 
                 default:
@@ -175,6 +185,9 @@ public class Stats extends AppCompatActivity {
                     First_Spells.add("Cure Wounds");
                     First_Spells.add("Faerie Fire");
                     Second_Spells.add("Hold Person");
+                    Second_Spells.add("NA");
+                    Second_Spells.add("NA");
+                    Second_Spells.add("NA");
                     break;
 
                 case "Paladin":
@@ -194,6 +207,10 @@ public class Stats extends AppCompatActivity {
                     First_Spells.add("Wrathful Smite");
                     First_Spells.add("Bless");
                     First_Spells.add("Compelled Duel");
+                    Second_Spells.add("NA");
+                    Second_Spells.add("NA");
+                    Second_Spells.add("NA");
+                    Second_Spells.add("NA");
                     break;
 
                 case "Wizard":
@@ -215,6 +232,8 @@ public class Stats extends AppCompatActivity {
                     First_Spells.add("Detect Magic");
                     Second_Spells.add("Suggestion");
                     Second_Spells.add("Invisibility");
+                    Second_Spells.add("NA");
+                    Second_Spells.add("NA");
                     break;
 
                 default:
@@ -256,9 +275,12 @@ public class Stats extends AppCompatActivity {
                     Second_Level = 2;
                     First_Spells.add("Cure Wounds");
                     First_Spells.add("Charm Person");
+                    First_Spells.add("NA");
+                    First_Spells.add("NA");
                     Second_Spells.add("Invisibility");
                     Second_Spells.add("Enhance Ability");
                     Second_Spells.add("Hold Person");
+                    Second_Spells.add("NA");
                     break;
 
                 case "Paladin":
@@ -278,6 +300,10 @@ public class Stats extends AppCompatActivity {
                     First_Spells.add("Thunderous Smite");
                     First_Spells.add("Bless");
                     First_Spells.add("Cure Wounds");
+                    Second_Spells.add("NA");
+                    Second_Spells.add("NA");
+                    Second_Spells.add("NA");
+                    Second_Spells.add("NA");
                     break;
 
                 case "Wizard":
@@ -298,6 +324,9 @@ public class Stats extends AppCompatActivity {
                     First_Spells.add("Sleep");
                     First_Spells.add("Detect Magic");
                     Second_Spells.add("Suggestion");
+                    Second_Spells.add("NA");
+                    Second_Spells.add("NA");
+                    Second_Spells.add("NA");
                     break;
 
                 default:
@@ -339,9 +368,11 @@ public class Stats extends AppCompatActivity {
                     First_Spells.add("Charm Person");
                     First_Spells.add("Detect Magic");
                     First_Spells.add("Cure Wounds");
+                    First_Spells.add("NA");
                     Second_Spells.add("Enhance Ability");
                     Second_Spells.add("Invisibility");
                     Second_Spells.add("Phantasmal Force");
+                    Second_Spells.add("NA");
                     break;
 
                 case "Paladin":
@@ -361,7 +392,6 @@ public class Stats extends AppCompatActivity {
                     First_Spells.add("Wrathful Smite");
                     First_Spells.add("Divine Favor");
                     First_Spells.add("Searing Smite");
-                    First_Spells.add("Command");
                     break;
 
                 case "Wizard":
@@ -383,6 +413,8 @@ public class Stats extends AppCompatActivity {
                     First_Spells.add("Detect Magic");
                     Second_Spells.add("Suggestion");
                     Second_Spells.add("Invisibility");
+                    Second_Spells.add("NA");
+                    Second_Spells.add("NA");
                     break;
 
                 default:

@@ -41,7 +41,7 @@ public class Enemies extends Game {
             case 0:
                 this.EnemyName = "Goblin";
                 this.Health = 7;
-                this.Initiative = new Random().nextInt(20);
+                this.Initiative = new Random().nextInt(20)+1;
                 this.AC = 15;
                 this.Str = -1;
                 this.Dex = 2;
@@ -49,13 +49,15 @@ public class Enemies extends Game {
                 this.Int = 0;
                 this.Wis = -1;
                 this.Cha = -1;
+                this.EnemyAttacks.add("Scimitar");
+                this.EnemyAttacks.add("Shortbow");
                 break;
 
             //Bandit
             case 1:
                 this.EnemyName = "Bandit";
                 this.Health = 11;
-                this.Initiative = new Random().nextInt(20);
+                this.Initiative = new Random().nextInt(20)+1;
                 this.AC = 12;
                 this.Str = 0;
                 this.Dex = 1;
@@ -71,7 +73,7 @@ public class Enemies extends Game {
             case 2:
                 this.EnemyName = "Bugbear";
                 this.Health = 27;
-                this.Initiative = new Random().nextInt(20);
+                this.Initiative = new Random().nextInt(20)+1;
                 this.AC = 16;
                 this.Str = 2;
                 this.Dex = 2;
@@ -87,7 +89,7 @@ public class Enemies extends Game {
             case 3:
                 this.EnemyName = "Dire Wolf";
                 this.Health = 37;
-                this.Initiative = new Random().nextInt(20);
+                this.Initiative = new Random().nextInt(20)+1;
                 this.AC = 14;
                 this.Str = 3;
                 this.Dex = 2;
@@ -102,7 +104,7 @@ public class Enemies extends Game {
             case 4:
                 this.EnemyName = "Wight";
                 this.Health = 45;
-                this.Initiative = new Random().nextInt(20);
+                this.Initiative = new Random().nextInt(20)+1;
                 this.AC = 14;
                 this.Str = 2;
                 this.Dex = 2;
@@ -159,7 +161,81 @@ public class Enemies extends Game {
         return Cha;
     }
 
+    public int rollDMG(String Weapon){
+        switch (EnemyName) {
+        //Goblin
+        case "Goblin":
+            return new Random().nextInt((6)+1) + 2;
+
+        //Bandit
+        case "Bandit":
+            if (Weapon.equals("Scimitar")){
+                return new Random().nextInt((6)+1) + 1;
+            }
+            else{
+                return new Random().nextInt((8)+1) + 1;
+            }
+
+            //Bugbear
+        case "Bugbear":
+            if (Weapon.equals("Morningstar")){
+                return 3*(new Random().nextInt((8)+1) + 2);
+            }
+            else{
+                return 3*(new Random().nextInt((6)+1) + 2);
+            }
+
+            //Dire Wolf
+        case "Dire Wolf":
+            return 2*(new Random().nextInt((6)+1) + 3);
+
+        //Wight
+        case "Wight":
+            if(Weapon.equals("Multiattack")){
+                return 2*(new Random().nextInt((8)+1) + 2);
+            }
+            else if (Weapon.equals("Life Drain"))
+            {
+                //TODO: ADD Constitution saving throw for the player
+                return new Random().nextInt((6)+1) + 2;
+            }
+            else if (Weapon.equals("Longsword")){
+                return new Random().nextInt((8)+1) + 2;
+            }
+            else{
+                return new Random().nextInt((8)+1) + 2;
+            }
+    }
+        return -10;
+}
+
+    public int rollATT(){
+        switch (EnemyName) {
+            //Goblin
+            case "Goblin":
+                return new Random().nextInt((20)+1) + 4;
+
+            //Bandit
+            case "Bandit":
+                return new Random().nextInt((20)+1) + 3;
+
+                //Bugbear
+            case "Bugbear":
+                return new Random().nextInt((20)+1) + 4;
+
+                //Dire Wolf
+            case "Dire Wolf":
+                return new Random().nextInt((20)+1) + 5;
+
+            //Wight
+            case "Wight":
+                return new Random().nextInt((20)+1) + 4;
+        }
+        return -10;
+    }
+
     public ArrayList<String> getEnemyAttacks(){
         return EnemyAttacks;
     }
+
 }

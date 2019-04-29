@@ -6,7 +6,47 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".Game"
-    tools:showIn="@layout/activity_game">
+    tools:showIn="@layout/activity_game"
+    >
+
+    <Button
+        android:id="@+id/health_potion_button"
+        android:layout_width="105dp"
+        android:layout_height="60dp"
+        android:text="@string/health_potion_button"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.303"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.819" />
+
+    <Button
+        android:id="@+id/first_spell_button"
+        android:layout_width="124dp"
+        android:layout_height="50dp"
+        android:text="@string/first_spell_button"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.031"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.587" />
+
+    <Button
+        android:id="@+id/second_spell_button"
+        android:layout_width="124dp"
+        android:layout_height="50dp"
+        android:text="@string/second_spell_button"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.587" />
 
     <Button
         android:id="@+id/attack_button_5"
@@ -15,11 +55,11 @@
         android:text="@string/attack_button"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.31"
+        app:layout_constraintHorizontal_bias="0.303"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.936" />
+        app:layout_constraintVertical_bias="0.959" />
 
     <Button
         android:id="@+id/inventory_button"
@@ -36,8 +76,8 @@
 
     <Button
         android:id="@+id/attack_button_4"
-        android:layout_width="105dp"
-        android:layout_height="60dp"
+        android:layout_width="118dp"
+        android:layout_height="68dp"
         android:text="@string/attack_button"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -49,34 +89,34 @@
 
     <Button
         android:id="@+id/attack_button_3"
-        android:layout_width="112dp"
-        android:layout_height="60dp"
+        android:layout_width="127dp"
+        android:layout_height="64dp"
         android:text="@string/attack_button"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.819" />
+        app:layout_constraintVertical_bias="0.818" />
 
     <Button
         android:id="@+id/attack_button_2"
-        android:layout_width="109dp"
-        android:layout_height="60dp"
+        android:layout_width="127dp"
+        android:layout_height="64dp"
         android:text="@string/attack_button"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.697" />
+        app:layout_constraintVertical_bias="0.698" />
 
     <Button
         android:id="@+id/attack_button_1"
-        android:layout_width="105dp"
-        android:layout_height="60dp"
+        android:layout_width="119dp"
+        android:layout_height="62dp"
         android:text="@string/attack_button"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -88,11 +128,11 @@
 
     <TextView
         android:id="@+id/instruct_text"
-        android:layout_width="354dp"
-        android:layout_height="123dp"
+        android:layout_width="392dp"
+        android:layout_height="152dp"
         android:text="@string/instruct_text"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintHorizontal_bias="0.416"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -109,7 +149,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.261" />
+        app:layout_constraintVertical_bias="0.283" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -120,10 +160,11 @@
         android:background="#F0F7F1"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.385" />
+        app:layout_constraintVertical_bias="0.421" />
 
     <TextView
         android:id="@+id/health_num"
@@ -136,7 +177,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.344" />
+        app:layout_constraintVertical_bias="0.362" />
 
     <Button
         android:id="@+id/fight_button"
@@ -163,5 +204,18 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.819" />
+
+    <TextView
+        android:id="@+id/invent_text"
+        android:layout_width="260dp"
+        android:layout_height="201dp"
+        android:text="@string/inventory_text"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.033"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.767" />
 
 </android.support.constraint.ConstraintLayout>
