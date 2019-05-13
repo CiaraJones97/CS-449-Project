@@ -1,23 +1,12 @@
 package com.example.minidnd;
 
-import android.widget.Button;
-
 import java.util.Random;
 
 public class Player extends Game {
-    public Button Att_1;
-    public Button Att_2;
-    public Button Att_3;
-    public Button Att_4;
-    public Button Att_5;
-    Random dice = new Random();
+    Random dice;
 
-    public Player(Button ATT_1,Button ATT_2,Button ATT_3,Button ATT_4,Button ATT_5){
-        Att_1 = ATT_1;
-        Att_2 = ATT_2;
-        Att_3 = ATT_3;
-        Att_4 = ATT_4;
-        Att_5 = ATT_5;
+    public Player(){
+        dice = new Random();
     }
 
     public int Attacking_First_1() {
@@ -26,24 +15,19 @@ public class Player extends Game {
             switch (set.getString("Class", " ")) {
 
                 case "Bard":
-                    //TODO
                     //Cure Wounds
                     //Target regain the number hit points equal to 1d8 + ability
-                    return new Random().nextInt((8) + 1) + 3;
+                    return dice.nextInt((8) + 1) + 3;
 
                 case "Paladin":
-                    //TODO
                     //Bless
-                    //Add a d4 to an attack roll or saving roll
-
-                    break;
+                    //Add a d4 to an attack roll
+                    return dice.nextInt((4) + 1);
 
                 case "Wizard":
-                    //TODO
                     //Mage Armor
                     //The target's base AC becomes 13+ Dex
-
-                    break;
+                    return 13;
 
                 default:
                     break;
@@ -57,16 +41,18 @@ public class Player extends Game {
 
                 case "Bard":
                     //Charm Person
-                    break;
+                    //Enemy needs to make a wisdom saving throw
+                    return -10;
 
                 case "Paladin":
                     //Cure Wounds
-                    break;
+                    //Target regain the number hit points equal to 1d8 + ability
+                    return dice.nextInt((8) + 1) + 3;
 
                 case "Wizard":
                     //Mage Armor
-
-                    break;
+                    //The target's base AC becomes 13+ Dex
+                    return 13;
 
                 default:
                     break;
@@ -79,15 +65,18 @@ public class Player extends Game {
             switch (set.getString("Class", " ")) {
                 case "Bard":
                     //Cure Wounds
-                    break;
+                    //Target regain the number hit points equal to 1d8 + ability
+                    return dice.nextInt((8) + 1) + 3;
 
                 case "Paladin":
                     //Compelled Duel
-                    break;
+                    //Creature makes a wisdom save else gets disadvantage
+                    return -10;
 
                 case "Wizard":
                     //Mage Armor
-                    break;
+                    //The target's base AC becomes 13+ Dex
+                    return 13;
 
                 default:
                     break;
@@ -100,16 +89,19 @@ public class Player extends Game {
 
                 case "Bard":
                     //Charm Person
-                    break;
+                    //Enemy needs to make a wisdom saving throw
+                    return -10;
+
 
                 case "Paladin":
                     //Cure Wounds
-                    break;
+                    //Target regain the number hit points equal to 1d8 + ability
+                    return dice.nextInt((8) + 1) + 3;
 
                 case "Wizard":
                     //Mage Armor
-
-                    break;
+                    //The target's base AC becomes 13+ Dex
+                    return 13;
 
                 default:
                     break;
@@ -126,19 +118,19 @@ public class Player extends Game {
             switch (set.getString("Class", " ")) {
 
                 case "Bard":
-                    //TODO
                     //Charm Person
-                    break;
+                    //Enemy needs to make a wisdom saving throw
+                    return -10;
 
                 case "Paladin":
-                    //TODO
                     //Searing Smite
-                    break;
+                    //Enemy must make a constitution saving throw or take additional damage
+                    return dice.nextInt((6) + 1);
 
                 case "Wizard":
-                    //TODO
                     //Charm Person
-                    break;
+                    //Enemy needs to make a wisdom saving throw
+                    return -10;
 
                 default:
                     break;
@@ -152,15 +144,18 @@ public class Player extends Game {
 
                 case "Bard":
                     //Detect Magic
-                    break;
+                    //Show the player the enemies attacks
+                    return -10;
 
                 case "Paladin":
                     //Wrathful Smite
-                    break;
+                    //Enemy must make a wisdom saving throw or be frightened
+                    return dice.nextInt((6) + 1);
 
                 case "Wizard":
                     //Charm Person
-                    break;
+                    //Enemy needs to make a wisdom saving throw
+                    return -10;
 
                 default:
                     break;
@@ -173,15 +168,18 @@ public class Player extends Game {
             switch (set.getString("Class", " ")) {
                 case "Bard":
                     //Charm Person
-                    break;
+                    //Enemy needs to make a wisdom saving throw
+                    return -10;
 
                 case "Paladin":
                     //Thunderous Smite
-                    break;
+                    //Enemy must make a Strength saving throw or me knocked prone
+                    return 2*dice.nextInt((6) + 1);
 
                 case "Wizard":
                     //Charm Person
-                    break;
+                    //Enemy needs to make a wisdom saving throw
+                    return -10;
 
                 default:
                     break;
@@ -194,15 +192,18 @@ public class Player extends Game {
 
                 case "Bard":
                     //Detect Magic
-                    break;
+                    //Show the player the enemies attacks
+                    return -10;
 
                 case "Paladin":
                     //Wrathful Smite
-                    break;
+                    //Enemy must make a wisdom saving throw or be frightened
+                    return dice.nextInt((6) + 1);
 
                 case "Wizard":
                     //Charm Person
-                    break;
+                    //Enemy needs to make a wisdom saving throw
+                    return -10;
 
                 default:
                     break;
@@ -214,7 +215,100 @@ public class Player extends Game {
     }
 
     public int Attacking_First_3(){
-        //TODO
+        //Race: Elf
+        if (set.getString("Race", " ").equals("Elf")) {
+            switch (set.getString("Class", " ")) {
+
+                case "Bard":
+                    //Detect Magic
+                    //Show the player the enemies attacks
+                    return -10;
+
+                case "Paladin":
+                    //Compelled Duel
+                    //Creature makes a wisdom save else gets disadvantage
+                    return -10;
+
+                case "Wizard":
+                    //Sleep
+                    //Creature takes 1d8
+                    return dice.nextInt((8) + 1);
+
+                default:
+                    break;
+
+            }
+        }
+
+        //Race: Human
+        if (set.getString("Race", " ").equals("Human")) {
+            switch (set.getString("Class", " ")) {
+
+                case "Bard":
+                    //Cure Wounds
+                    //Target regain the number hit points equal to 1d8 + ability
+                    return dice.nextInt((8) + 1) + 3;
+
+                case "Paladin":
+                    //Bless
+                    //Add a d4 to an attack roll
+                    return dice.nextInt((4) + 1);
+
+                case "Wizard":
+                    //Sleep
+                    //Creature takes 1d8
+                    return dice.nextInt((8) + 1);
+
+                default:
+                    break;
+            }
+
+        }
+
+        //Race: Orc
+        if (set.getString("Race", " ").equals("Orc")) {
+            switch (set.getString("Class", " ")) {
+
+                case "Paladin":
+                    //Bless
+                    //Add a d4 to an attack roll
+                    return dice.nextInt((4) + 1);
+
+                case "Wizard":
+                    //Sleep
+                    //Creature takes 1d8
+                    return dice.nextInt((8) + 1);
+
+                default:
+                    break;
+            }
+        }
+
+        //Race: Tiefling
+        if (set.getString("Race", " ").equals("Tiefling")) {
+            switch (set.getString("Class", " ")) {
+
+                case "Bard":
+                    //Cure Wounds
+                    //Target regain the number hit points equal to 1d8 + ability
+                    return dice.nextInt((8) + 1) + 3;
+
+
+                case "Paladin":
+                    //Divine Favor
+                    //Deal an extra 1d4 radiant damage
+                    return dice.nextInt((4) + 1);
+
+                case "Wizard":
+                    //Sleep
+                    //Creature takes 1d8
+                    return dice.nextInt((8) + 1);
+
+                default:
+                    break;
+            }
+        }
+
         return -10;
     }
 
@@ -223,28 +317,178 @@ public class Player extends Game {
         return -10;
     }
 
-    public int Attacking_Second_1(){
-        //TODO
-        return -10;
-    }
-
-    public int Attacking_Second_2(){
-        //TODO
-        return -10;
-    }
-
     public int Attacking_Second_3(){
-        //TODO
-        return -10;
-    }
 
-    public int Attacking_Second_4(){
-        //TODO
+        //Race: Orc
+        if (set.getString("Race", " ").equals("Orc")) {
+            switch (set.getString("Class", " ")) {
+
+                case "Bard":
+                    //Hold Person
+                    return -10;
+
+                case "Paladin":
+                    //Bless
+                    //Add a d4 to an attack roll
+                    return dice.nextInt((4) + 1);
+
+                case "Wizard":
+                    //Sleep
+                    //Creature takes 1d8
+                    return dice.nextInt((8) + 1);
+
+                default:
+                    break;
+            }
+        }
+
+        //Race: Tiefling
+        if (set.getString("Race", " ").equals("Tiefling")) {
+            switch (set.getString("Class", " ")) {
+
+                case "Bard":
+                    //Phantasmal Force
+                    //Deal 1d6 psychic damage
+                    return dice.nextInt((6) + 1);
+
+
+                case "Paladin":
+                    //Divine Favor
+                    //Deal an extra 1d4 radiant damage
+                    return dice.nextInt((4) + 1);
+
+                case "Wizard":
+                    //Sleep
+                    //Creature takes 1d8
+                    return dice.nextInt((8) + 1);
+
+                default:
+                    break;
+            }
+        }
+
         return -10;
     }
 
     public int Attacking_Melee(){
-        //TODO
+        //Race: Elf
+        if (set.getString("Race", " ").equals("Elf")) {
+            switch (set.getString("Class", " ")) {
+
+                case "Bard":
+                    //Longsword
+                    //1d8+1 slashing damage
+                    return dice.nextInt((8) + 1) + 1;
+
+                case "Paladin":
+                    //Battleaxe
+                    //1d8 + 2 slashing damage
+                    return dice.nextInt((8) + 1) + 2;
+
+                case "Rogue":
+                    //Shortbow
+                    //1d6+3 piercing damage
+                    return dice.nextInt((6) + 1) + 3;
+
+                case "Wizard":
+                    //Quarterstaff
+                    //1d6+0 bludgeoning damage
+                    return dice.nextInt((6) + 1);
+
+                default:
+                    break;
+
+            }
+        }
+
+        //Race: Human
+        if (set.getString("Race", " ").equals("Human")) {
+            switch (set.getString("Class", " ")) {
+
+                case "Bard":
+                    //Longsword
+                    //1d8+1 slashing damage
+                    return dice.nextInt((8) + 1) + 1;
+
+                case "Paladin":
+                    //Longsword
+                    //1d8+3 slashing damage
+                    return dice.nextInt((8) + 1) + 3;
+
+                case "Rogue":
+                    //Shortbow
+                    //1d6+3 piercing damage
+                    return dice.nextInt((6) + 1) + 3;
+
+                case "Wizard":
+                    //Quarterstaff
+                    //1d6+1 bludgeoning damage
+                    return dice.nextInt((6) + 1) + 1;
+
+                default:
+                    break;
+            }
+
+        }
+
+        //Race: Orc
+        if (set.getString("Race", " ").equals("Orc")) {
+            switch (set.getString("Class", " ")) {
+
+                case "Bard":
+                    //Longsword
+                    //1d8+1 slashing damage
+                    return dice.nextInt((8) + 1) + 2;
+
+                case "Paladin":
+                    //Battleaxe
+                    //1d8 + 3 slashing damage
+                    return dice.nextInt((8) + 1) + 3;
+
+                case "Rogue":
+                    //Shortbow
+                    //1d6+2 piercing damage
+                    return dice.nextInt((6) + 1) + 2;
+
+                case "Wizard":
+                    //Quarterstaff
+                    //1d6+0 bludgeoning damage
+                    return dice.nextInt((6) + 1);
+
+                default:
+                    break;
+            }
+        }
+
+        //Race: Tiefling
+        if (set.getString("Race", " ").equals("Tiefling")) {
+            switch (set.getString("Class", " ")) {
+
+                case "Bard":
+                    //Longsword
+                    //1d8+1 slashing damage
+                    return dice.nextInt((8) + 1) + 1;
+
+                case "Rogue":
+                    //Shortbow
+                    //1d6+2 piercing damage
+                    return dice.nextInt((6) + 1) + 2;
+
+                case "Paladin":
+                    //Longsword
+                    //1d8 + 2 slashing damage
+                    return dice.nextInt((8) + 1) + 2;
+
+                case "Wizard":
+                    //Quarterstaff
+                    //1d6+0 bludgeoning damage
+                    return dice.nextInt((6) + 1);
+
+                default:
+                    break;
+            }
+        }
+
         return -10;
     }
 

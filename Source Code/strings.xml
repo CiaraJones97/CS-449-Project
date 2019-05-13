@@ -31,6 +31,11 @@
     <string name="fight_button">FIGHT</string>
     <string name="flee_button">FLEE</string>
     <string name="inventory_button">INVENTORY</string>
+    <string name="inventory_text">Inven Text</string>
     <string name="attack_button">ATTACK</string>
+    <string name="first_spell_button">FIRST LEVEL</string>
+    <string name="second_spell_button">SECOND LEVEL</string>
+    <string name="health_potion_button">USE HEALTH POTION</string>
+    <string name="confirm_end_button">END TURN</string>
 
 </resources>

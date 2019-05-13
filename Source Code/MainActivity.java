@@ -49,7 +49,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (settings.getString("Race", "NA").equals("NA") ||
-                        settings.getString("Class", "NA").equals("NA")){
+                        settings.getString("Class", "NA").equals("NA") ||
+                        First_Spell == null){
                     AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
                     alert.setTitle("Error");
                     alert.setMessage("Create A Character Before Starting The Game");
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
                     alertDialog.show();
                 }
                 else{
+                    //The needed data is passed to the game file
                     Intent gameIntent = new Intent(MainActivity.this, Game.class);
                     gameIntent.putExtra("CharRace", settings.getString("Race", "NA"));
                     gameIntent.putExtra("CharClass", settings.getString("Class", "NA"));
@@ -74,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                     gameIntent.putExtra("CharSecond", settings.getInt("Second",-10));
                     gameIntent.putStringArrayListExtra("CharFirst_Spell", First_Spell);
                     gameIntent.putStringArrayListExtra("CharSecond_Spell", Second_Spell);
-                    startActivity(gameIntent);
+                    startActivityForResult(gameIntent, 103);
                 }
 
             }
@@ -140,6 +142,11 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 }
 
+            case 103:
+                editor.clear();
+                editor.commit();
+                break;
+
         }
     }
 
@@ -158,6 +165,8 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
+
+        //Access the STATS page
         if (id == R.id.menu_stats) {
             if (settings.getString("Class", "NA").equals("NA"))
             {

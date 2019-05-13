@@ -10,6 +10,19 @@
     >
 
     <Button
+        android:id="@+id/confirm_end_button"
+        android:layout_width="149dp"
+        android:layout_height="40dp"
+        android:text="@string/confirm_end_button"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.305" />
+
+    <Button
         android:id="@+id/health_potion_button"
         android:layout_width="105dp"
         android:layout_height="60dp"
@@ -76,29 +89,29 @@
 
     <Button
         android:id="@+id/attack_button_4"
-        android:layout_width="118dp"
-        android:layout_height="68dp"
+        android:layout_width="126dp"
+        android:layout_height="60dp"
         android:text="@string/attack_button"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.819" />
+        app:layout_constraintVertical_bias="0.809" />
 
     <Button
         android:id="@+id/attack_button_3"
-        android:layout_width="127dp"
-        android:layout_height="64dp"
+        android:layout_width="122dp"
+        android:layout_height="61dp"
         android:text="@string/attack_button"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintHorizontal_bias="0.038"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.818" />
+        app:layout_constraintVertical_bias="0.809" />
 
     <Button
         android:id="@+id/attack_button_2"
@@ -131,6 +144,7 @@
         android:layout_width="392dp"
         android:layout_height="152dp"
         android:text="@string/instruct_text"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.416"
         app:layout_constraintLeft_toLeftOf="parent"

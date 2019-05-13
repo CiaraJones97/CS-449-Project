@@ -19,13 +19,15 @@ public class Util extends Game {
     public Button Att_4;
     public Button Att_5;
     public Button Health;
+    public Button ConfirmB;
 
     TextView Invent_text;
     ArrayList<String> Invent_Lst;
 
     public Util(Button NEXT,Button FIGHT,Button FLEE,
                 Button FIR,Button SEC,Button INVENTORY,Button ATT_1,
-                Button ATT_2,Button ATT_3,Button ATT_4,Button ATT_5,Button HEALTH,TextView INVENT,ArrayList INVENT_LIST){
+                Button ATT_2,Button ATT_3,Button ATT_4,Button ATT_5,Button HEALTH,
+                Button Confirm,TextView INVENT,ArrayList INVENT_LIST){
         N = NEXT;
         Fi = FIGHT;
         Fl = FLEE;
@@ -40,17 +42,20 @@ public class Util extends Game {
         Invent_text = INVENT;
         Invent_Lst = INVENT_LIST;
         Health = HEALTH;
+        ConfirmB = Confirm;
     }
 
     public void Combat(){
         if (!set.getBoolean("Continue",true)) {
             N.setVisibility(View.GONE);
+            ConfirmB.setVisibility(View.GONE);
             Fi.setVisibility(View.VISIBLE);
             Fl.setVisibility(View.VISIBLE);
             Inv.setVisibility(View.VISIBLE);
         }
         else {
             N.setVisibility(View.VISIBLE);
+            ConfirmB.setVisibility(View.GONE);
             Fi.setVisibility(View.GONE);
             Fl.setVisibility(View.GONE);
             F_L.setVisibility(View.GONE);
@@ -79,13 +84,13 @@ public class Util extends Game {
         S_L.setVisibility(View.GONE);
     }
 
-    public void Fight(){
+    public void Fight(int firstmax, int secondmax){
         Invent_text.setVisibility(View.GONE);
         Health.setVisibility(View.GONE);
-        if (set.getInt("First",0)!=0){
+        if (firstmax!=0){
             F_L.setVisibility(View.VISIBLE);
         }
-        if (set.getInt("Second", 0)!=0){
+        if (secondmax!=0){
             S_L.setVisibility(View.VISIBLE);
         }
         Att_5.setVisibility(View.VISIBLE);
@@ -100,5 +105,23 @@ public class Util extends Game {
         Health.setVisibility(View.GONE);
 
     }
+
+    public void EndTurn(){
+        ConfirmB.setVisibility(View.VISIBLE);
+        Fi.setVisibility(View.GONE);
+        Fl.setVisibility(View.GONE);
+        F_L.setVisibility(View.GONE);
+        S_L.setVisibility(View.GONE);
+        Invent_text.setVisibility(View.GONE);
+        Att_1.setVisibility(View.GONE);
+        Att_2.setVisibility(View.GONE);
+        Att_3.setVisibility(View.GONE);
+        Att_4.setVisibility(View.GONE);
+        Att_5.setVisibility(View.GONE);
+        Health.setVisibility(View.GONE);
+    }
+
+
+
 
 }
