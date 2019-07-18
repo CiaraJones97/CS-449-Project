@@ -92,6 +92,7 @@ public class Game extends AppCompatActivity {
         edit.putInt("Second", secondmax);
         edit.putInt("AC", acmax);
         edit.putBoolean("Continue", true);
+        edit.putBoolean("AC_Chg", false);
         edit.commit();
 
         //Add initial items to the inventory
@@ -244,6 +245,7 @@ public class Game extends AppCompatActivity {
         });
 
         //First ATTACK Button
+        //TODO: BETTER FORMAT ADDED TO PLAYER, FIX THIS SECTION OF CODE
         Attack_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -258,11 +260,11 @@ public class Game extends AppCompatActivity {
 
                 //If the button is "NA"
                 if(First_Spell.get(0).equals("NA") && spell_option.equals("first")){
-                    Instruct_text.append("Please pick an available option");
+                    Instruct_text.append("\nPlease pick an available option");
                 }
 
                 if(Second_Spell.get(0).equals("NA") && spell_option.equals("second")){
-                    Instruct_text.append("Please pick an available option");
+                    Instruct_text.append("\nPlease pick an available option");
                 }
 
                 //If the attack is a FIRST LEVEL spell
@@ -424,12 +426,12 @@ public class Game extends AppCompatActivity {
                 }
 
                 //If the button is "NA"
-                if(First_Spell.get(0).equals("NA") && spell_option.equals("first")){
-                    Instruct_text.append("Please pick an available option");
+                if(First_Spell.get(1).equals("NA") && spell_option.equals("first")){
+                    Instruct_text.append("\nPlease pick an available option");
                 }
 
-                if(Second_Spell.get(0).equals("NA") && spell_option.equals("second")){
-                    Instruct_text.append("Please pick an available option");
+                if(Second_Spell.get(1).equals("NA") && spell_option.equals("second")){
+                    Instruct_text.append("\nPlease pick an available option");
                 }
 
 
@@ -641,12 +643,12 @@ public class Game extends AppCompatActivity {
                 }
 
                 //If the button is "NA"
-                if(First_Spell.get(0).equals("NA") && spell_option.equals("first")){
-                    Instruct_text.append("Please pick an available option");
+                if(First_Spell.get(2).equals("NA") && spell_option.equals("first")){
+                    Instruct_text.append("\nPlease pick an available option");
                 }
 
-                if(Second_Spell.get(0).equals("NA") && spell_option.equals("second")){
-                    Instruct_text.append("Please pick an available option");
+                if(Second_Spell.get(2).equals("NA") && spell_option.equals("second")){
+                    Instruct_text.append("\nPlease pick an available option");
                 }
 
 

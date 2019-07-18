@@ -246,7 +246,7 @@ public class Enemies extends Game {
                           TextView health_num, ProgressBar healthbar) {
         int temp = EnemyAttacks.size();
         int att_roll = rollATT();
-        int dmg_roll = -10;
+        int dmg_roll;
         int min = 100;
 
         instruct.setText(line);
